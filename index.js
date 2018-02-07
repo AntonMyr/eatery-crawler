@@ -20,6 +20,7 @@ const findMeny = async () => {
   const weekDays = ['Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag'];
   let fullJson = {};
   for (let i = 0; i < sideBar.length; i++) {
+    fullJson[weekDays[i]] = {};
     if (i % 2 === 0 && i !== 0) {
       let weekday = i - 2;
       let formatedDay = sideBar[i].split('\n', 6);
@@ -29,7 +30,6 @@ const findMeny = async () => {
 
       for (var j = 0; j < formatedDay.length; j++) {
         formatedDay[j].split(': ', 3);
-        fullJson[weekday] = {};
         // fullJson[weekday] = {
         //   Fisk: formatedDay[j].split(' ', 1)
         //
