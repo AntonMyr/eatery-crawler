@@ -29,10 +29,7 @@ const findMeny = async () => {
 
       for (var j = 0; j < formatedDay.length; j++) {
         formatedDay[j].split(': ', 3);
-        fullJson[weekday] = {
-          formatedDay[j]: "",
-          [j]: formatedDay[j]
-        };
+        fullJson[weekday] = {};
         // fullJson[weekday] = {
         //   Fisk: formatedDay[j].split(' ', 1)
         //
