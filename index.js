@@ -19,6 +19,7 @@ const findMeny = async () => {
   let sideBar = fullSidebar.split(/(Måndag|Tisdag|Onsdag|Torsdag|Fredag)\b/g);
   const weekDays = ['Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag'];
   let fullJson = {};
+  let formattedDays = [];
   for (let i = 0; i < sideBar.length; i++) {
     fullJson[weekDays[i]] = {};
     if (i % 2 === 0 && i !== 0) {
@@ -35,14 +36,20 @@ const findMeny = async () => {
         //
         // };
       }
+      formattedDays.push(formatedDay);
       console.log(formatedDay);
     }
   }
   console.log(JSON.stringify(fullJson, null, 2));
+  console.log('fulljson', fullJson);
+  const menu = {};
+  for (let day in formattedDays) {
+    menu[weekDays[day]] = formattedDays[day];
+  }
   let lastLine = sideBar[8].split(/(Kött|Fisk|Veggi)\b/g);
   // console.log(lastLine[2].split(':', 2));
   // console.log(lastLine[6].split('\n', 1));
-  return sideBar;
+  return menu;
 };
 
 console.log(findMeny());
